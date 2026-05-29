@@ -7,6 +7,10 @@ def clean_data(file_path):
         na_values=["", " ", "NULL", "null", "N/A", "na"]
     )
 
+    # Convert date columns
+    df["Order Date"] = pd.to_datetime(df["Order Date"])
+    df["Ship Date"] = pd.to_datetime(df["Ship Date"])
+
     print("\nDataset Loaded Successfully")
     print("Rows:", len(df))
     print("Columns:", len(df.columns))
